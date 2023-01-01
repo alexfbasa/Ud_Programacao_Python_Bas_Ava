@@ -1,3 +1,5 @@
+import random
+
 letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
            'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',
            'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
@@ -11,7 +13,30 @@ nr_numbers = int(input(f"How many numbers would you like?\n"))
 
 # Eazy Level - Order not randomised:
 # e.g. 4 letter, 2 symbol, 2 number = JduE&!91
+easy_password = ""
 
+for char in range(0, nr_letters):
+    character = random.choice(letters)
+    if character in easy_password:
+        pass
+    else:
+        easy_password += character
+
+for sym in range(0, nr_symbols):
+    symbol = random.choice(symbols)
+    if symbol in easy_password:
+        pass
+    else:
+        easy_password += symbol
+
+for char in range(0, nr_numbers):
+    easy_password += random.choice(numbers)
+
+print(easy_password)
 
 # Hard Level - Order of characters randomised:
 # e.g. 4 letter, 2 symbol, 2 number = g^2jk8&P
+hard_password = ""
+
+for char in range(len(easy_password)):
+    hard_password += random.choice(easy_password)
