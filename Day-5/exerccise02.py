@@ -1,39 +1,25 @@
 '''
 Instructions
-You are going to write a program that calculates the average student height from a List of heights.
-The average height can be calculated by adding all the heights together and dividing by the total number of heights.
+You are going to write a program that calculates the highest score from a List of scores.
+e.g. student_scores = [78, 65, 89, 86, 55, 91, 64, 89]
+Important you are not allowed to use the max or min functions. The output words must match the example. i.e
+The highest score in the class is: x
+Example Input
+78 65 89 86 55 91 64 89
+In this case, student_scores would be a list that looks like: [78, 65, 89, 86, 55, 91, 64, 89]
+Example Output
+The highest score in the class is: 91
 '''
 # 🚨 Don't change the code below 👇
-student_heights = input("Input a list of student heights ").split()
-for n in range(0, len(student_heights)):
-    student_heights[n] = int(student_heights[n])
+student_scores = input("Input a list of student scores ").split()
+for n in range(0, len(student_scores)):
+    student_scores[n] = int(student_scores[n])
+print(student_scores)
+# 🚨 Don't change the code above 👆
 
-total_heights = 0
-for height in student_heights:
-    total_heights += height
-print(total_heights)
-
-
-number_of_students = 0
-
-for student in student_heights:
-    number_of_students += 1
-average_heights = round(total_heights / number_of_students)
-print(average_heights)
-'''
-# Get inputs as Strings
-input_string = input('Enter elements of a list separated by space ')
-print("\n")
-# create a list and split the strings as a data
-user_list = input_string.split()
-# print list
-print('list: ', user_list)
-
-# convert each item to int type
-for i in range(len(user_list)):
-    # convert each item to int type
-    user_list[i] = int(user_list[i])
-
-# Calculating the sum of list elements
-print("Sum = ", sum(user_list))
-'''
+# Write your code below this row 👇
+highest_score = 0
+for score in student_scores:
+    if highest_score < score:
+        highest_score = score
+print(f"The highest score in the class is: {highest_score}")
