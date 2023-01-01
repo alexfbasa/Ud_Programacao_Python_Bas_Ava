@@ -13,30 +13,31 @@ nr_numbers = int(input(f"How many numbers would you like?\n"))
 
 # Eazy Level - Order not randomised:
 # e.g. 4 letter, 2 symbol, 2 number = JduE&!91
-easy_password = ""
+password_list = []
 
 for char in range(0, nr_letters):
     character = random.choice(letters)
-    if character in easy_password:
+    if character in password_list:
         pass
     else:
-        easy_password += character
+        password_list += character
 
 for sym in range(0, nr_symbols):
     symbol = random.choice(symbols)
-    if symbol in easy_password:
+    if symbol in password_list:
         pass
     else:
-        easy_password += symbol
+        password_list += symbol
 
 for char in range(0, nr_numbers):
-    easy_password += random.choice(numbers)
+    password_list += random.choice(numbers)
 
-print(easy_password)
+print(password_list)
 
 # Hard Level - Order of characters randomised:
 # e.g. 4 letter, 2 symbol, 2 number = g^2jk8&P
 hard_password = ""
 
-for char in range(len(easy_password)):
-    hard_password += random.choice(easy_password)
+for char in range(len(password_list)):
+    hard_password += random.choice(password_list)
+    
