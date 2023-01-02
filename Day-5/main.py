@@ -1,8 +1,5 @@
-from art import LOGO
 import random
 
-print(LOGO)
-# Password Generator Project
 letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
            'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',
            'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
@@ -16,11 +13,31 @@ nr_numbers = int(input(f"How many numbers would you like?\n"))
 
 # Eazy Level - Order not randomised:
 # e.g. 4 letter, 2 symbol, 2 number = JduE&!91
-size_letter_list = len(letters)
-size_number_list = len(numbers)
-size_symbols_list = len(symbols)
+password_list = []
 
-choice_letters = random.randint(0, )
+for char in range(0, nr_letters):
+    character = random.choice(letters)
+    if character in password_list:
+        pass
+    else:
+        password_list += character
+
+for sym in range(0, nr_symbols):
+    symbol = random.choice(symbols)
+    if symbol in password_list:
+        pass
+    else:
+        password_list += symbol
+
+for char in range(0, nr_numbers):
+    password_list += random.choice(numbers)
+
+print(password_list)
+
 # Hard Level - Order of characters randomised:
 # e.g. 4 letter, 2 symbol, 2 number = g^2jk8&P
+hard_password = ""
 
+for char in range(len(password_list)):
+    hard_password += random.choice(password_list)
+    
