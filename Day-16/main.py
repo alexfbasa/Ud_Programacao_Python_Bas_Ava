@@ -1,21 +1,23 @@
-# from turtle import Turtle, Screen
-# import prettytable
-#
-# crush = Turtle()
-# print(crush)
-# my_screen = Screen()
-# crush.shape("turtle")
-# crush.shapesize(5)
-# crush.forward(150)
-#
-# # Objects and Attributes
-# print(my_screen.canvheight)
-#
-# # Methods
-# my_screen.exitonclick()
-from prettytable import PrettyTable
-table = PrettyTable()
-table.add_column("Pokemon Name", ['Pikachu', 'Raichu', 'Sandshrew'])
-table.add_column("Type", ['Electric', 'Electric', 'Ground'])
-table.align = 'l'
-print(table)
+from menu import Menu, MenuItem
+from coffee_maker import CoffeeMaker
+from money_machine import MoneyMachine
+from art import logo
+
+print(logo)
+is_on = True
+money_machine = MoneyMachine()
+menu = Menu()
+coffee_maker = CoffeeMaker()
+
+while is_on:
+    choice = input(f"What would you like? ({menu.get_items()}): ")
+    if choice == 'off':
+        print(f"Turning coffee machine down.")
+    elif choice == 'report':
+        coffee_maker.report()
+        money_machine.report()
+    else:
+        drink = menu.find_drink(choice)
+        if coffee_maker.is_resource_sufficient(drink):
+            if money_machine.make_payment(drink.cost):
+                coffee_maker.make_coffee(drink)
