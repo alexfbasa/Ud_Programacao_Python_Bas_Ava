@@ -1,4 +1,5 @@
 from replit import clear
+
 # HINT: You can call clear() to clear the output in the console.
 from art import logo
 
@@ -6,6 +7,8 @@ print(logo)
 
 bids = {}
 finish_auction = False
+
+
 # dictionary bidding_record = {'Angela': 123, 'Alexandre': 234}
 # Remember the loop through a dictionary check the Key
 def find_highest_bidder(bidding_record):
@@ -18,7 +21,6 @@ def find_highest_bidder(bidding_record):
             highest_bid = bid_amount
             winner = bidder
     print(f"The winner is {winner}, and the highest bid is {highest_bid}.")
-
 
 
 while not finish_auction:
