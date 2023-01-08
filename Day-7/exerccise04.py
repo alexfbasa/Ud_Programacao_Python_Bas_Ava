@@ -68,7 +68,7 @@ images = len(stages)
 # Set 'lives' to equal 6.
 lives = 6
 # Testing code
-print(stages[lives])
+print(stages[0])
 print(f'Pssst, the solution is {chosen_word}.')
 
 # Create blanks

@@ -39,8 +39,9 @@ while not end_of_game:
         print(f"You guesses {guess}, that's not in the word. You lose a life.")
         lives -= 1
         if lives == 0:
-            end_of_game = True
             print("You lose.")
+            end_of_game = True
+
 
     # Join all the elements in the list and turn it into a String.
     print(f"{' '.join(display)}")
