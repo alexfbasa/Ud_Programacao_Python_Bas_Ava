@@ -24,6 +24,7 @@ def check_answer(guess, a_followers, b_followers):
     print(f"Against B: {format_data(account_b)}")
     user_guess = input(f"Who has more followers? Type 'A' or 'B': ").lower()
 
+
 # Compare A: LeBron James, a Basketball player, from United States.
 # TODO 2 - Show the comparison A
 # TODO 3 - Show VS Logo
