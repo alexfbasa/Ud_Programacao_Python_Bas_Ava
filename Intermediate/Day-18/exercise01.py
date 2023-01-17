@@ -1,7 +1,9 @@
 from turtle import Turtle, Screen
+import turtle as t
 import random
 
-alex = Turtle()
+alex = t.Turtle()
+t.colormode(255)
 alex.shape("turtle")
 
 colors = ["green", "brown", "cyan", "red", "gold1", "blue", "magenta", "coral"]
