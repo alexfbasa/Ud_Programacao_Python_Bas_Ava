@@ -30,6 +30,8 @@ class Snake:
         self.head.forward(MOVE_DISTANCE)
 
     def up(self):
+        # self.segments['snake01'].setheading(90)
+        # self.segments[0].setheading(90)
         if self.head.heading() != DOWN:
             self.head.setheading(UP)
 

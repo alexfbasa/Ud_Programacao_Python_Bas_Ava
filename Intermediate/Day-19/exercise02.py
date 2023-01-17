@@ -11,7 +11,7 @@ def move_backwards():
     alex.forward(10)
 
 
-def turn_letft():
+def turn_left():
     new_heading = alex.heading() + 10
     alex.setheading(new_heading)
 
@@ -33,7 +33,7 @@ screen.listen()
 screen.onkey(move_forwards, "w")
 screen.onkey(move_backwards, "s")
 screen.onkey(turn_right, "a")
-screen.onkey(turn_letft, "c")
+screen.onkey(turn_left, "c")
 screen.onkey(clear, "t")
 
 screen.exitonclick()
