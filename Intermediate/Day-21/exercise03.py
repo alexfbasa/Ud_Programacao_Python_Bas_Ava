@@ -1,8 +1,9 @@
 import time
-from turtle import Screen, Turtle
-from snake import Snake
+from turtle import Screen
+
 from food import Food
 from scoreboard import ScoreBoard
+from snake import Snake
 
 screen = Screen()
 screen.setup(width=600, height=600)
@@ -40,11 +41,22 @@ while game_is_on:
         # It will have collision immediately  after running
         # all the snake segment the head is the first segment
         # Bypass snake head
-        if segment == snake.head:
+        '''if segment == snake.head:
             pass
         elif snake.head.distance(segment) < 10:
             game_is_on = False
-            scoreboard.game_over()
+            scoreboard.game_over()'''
+        if segment in snake.segments[1:]:
+            if snake.head.distance(segment) < 10:
+                game_is_on = False
+                scoreboard.game_over()
         # trigger game_over()
+        # explanation keys = [0'a', 1'b', 2'c', 3'd', 4'e', 5'f', 6'g']
+        # print(keys[2:5])   output [c d e]
+        # print(keys[2:])   output [c d e f g]
+        # print(keys[:5])   output [a b c d e]
+        # print(keys[2:5:2])   output [c e]
+        # print(keys[::2])   output [a c e g]
+        # print(keys[::-1])   output [g f e d c b a]
 
 screen.exitonclick()
