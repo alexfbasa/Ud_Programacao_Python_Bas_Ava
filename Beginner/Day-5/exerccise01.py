@@ -18,6 +18,8 @@ number_of_students = 0
 for student in student_heights:
     number_of_students += 1
 average_heights = round(total_heights / number_of_students)
+
+# average_heights = round(total_heights / len(student_heights))
 print(average_heights)
 '''
 # Get inputs as Strings
