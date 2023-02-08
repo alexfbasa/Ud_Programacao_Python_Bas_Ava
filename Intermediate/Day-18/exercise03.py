@@ -4,6 +4,7 @@ import random
 
 alex = t.Turtle()
 alex.shape("turtle")
+# Take a look of colormode function
 t.colormode(255)
 
 def random_color():
