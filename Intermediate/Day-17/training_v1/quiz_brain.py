@@ -1,32 +1,30 @@
 class QuizBrain:
+
     def __init__(self, q_list):
         self.question_number = 0
-        # self.question_list = question_bank
         self.question_list = q_list
         self.score = 0
 
-
-
     def still_has_question(self):
-        # return (TRUE) (while) self.1 < len(self.20)
-        return self.question_number < len(self.question_list)
+        if self.question_number < len(self.question_list):
+            return True
+        else:
+            return False
 
     def next_question(self):
-      # current_question = self.question_bank[self.0]
         current_question = self.question_list[self.question_number]
-      # self.0 += 1
         self.question_number += 1
-      # print(f"Q.{self.1}: {current_question.text}. (True/False):")
-        user_answer = input(f"Q.{self.question_number}: {current_question.text} (True/False): ")
-      # user_answer = True
-        self.check_answer(user_answer, current_question.answer)
+        get_user_answer = input(f"Q.{self.question_number}: {current_question.text} (True/False)?: ")
+        self.check_answer(get_user_answer, current_question.answer)
 
     def check_answer(self, user_answer, correct_answer):
         if user_answer.lower() == correct_answer.lower():
             self.score += 1
-            print('You got it right!')
+
+        elif user_answer == 'exit':
+            return
         else:
-            print(f"That's wrong.")
-        print(f"The correct answer is {correct_answer}. Your score is {self.score}")
-        print(f"Your current score is: {self.score}/{self.question_number}")
-        print("\n")
+            print('That is not correct.')
+        print(f'The correct answer was {correct_answer}.')
+        print(f'Your current score is {self.score}/{self.question_number}')
+        print(f"\n")
