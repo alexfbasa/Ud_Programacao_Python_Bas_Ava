@@ -17,8 +17,8 @@ for l in get_random_word:
 
 print(display_secret_chars)
 
-while LIVES > 0:
-    print(LIVES)
+while is_game_on:
+    print(get_images_list[LIVES])
     get_user_letter = input('Choice a letter: ').lower()
     if get_user_letter in display_secret_chars:
         print("You've already guessed this letter.")
@@ -27,7 +27,8 @@ while LIVES > 0:
         letter = get_random_word[position]
         if letter in get_user_letter:
             display_secret_chars[position] = letter
-            print("You've got a right shoot!!")
+    print("You've got a right shoot!!")
+    print(display_secret_chars)
     if get_user_letter not in get_random_word:
         LIVES -= 1
         print(f"There is no letter {get_user_letter} in the secret word.")
@@ -36,3 +37,7 @@ while LIVES > 0:
             print("Your lives are over.")
             print("Game over.")
             is_game_on = False
+    if '_' not in display_secret_chars:
+        is_game_on = False
+        print("Congratulations you win.")
+    # print(get_random_word[LIVES])
