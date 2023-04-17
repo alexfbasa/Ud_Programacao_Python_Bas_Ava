@@ -27,7 +27,7 @@ def find_highest_bid(bid_record):
 while is_auction_on:
     print("Let's get started the Auction:")
     get_bides()
-    another_bid = input("Is there another bid? (Yes) (No) ").lower()
+    another_bid = input("Is there another bid? Type (Yes) (No) ").lower()
     if another_bid == "yes":
         clear()
         pass
