@@ -29,18 +29,10 @@
 
 # Hint 3: Download and read this flow chart I've created:
 #   https://drive.google.com/uc?export=download&id=1rDkiHCrhaf9eX7u7yjM1qwSuyEk-rPnt
-
 # Hint 4: Create a deal_card() function that uses the List below to *return* a random card.
 # 11 is the Ace.
 import random
 from replit import clear
-from art import logo
-# Hint 4: Create a deal_card() function that uses the List below to *return* a random card.
-# 11 is the Ace.
-import random
-
-from replit import clear
-
 from art import logo
 
 
