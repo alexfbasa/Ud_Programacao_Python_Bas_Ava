@@ -22,4 +22,4 @@ e.g:
       ]
     }
 ```
-Now change the keys on Question constructor - from text to question and from answer to correct_answer.
+Now change the for loop keys on main file Question constructor - from text to question and from answer to correct_answer.

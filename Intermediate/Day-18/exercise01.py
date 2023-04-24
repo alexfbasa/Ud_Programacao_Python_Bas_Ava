@@ -1,6 +1,6 @@
-from turtle import Turtle, Screen
-import turtle as t
 import random
+import turtle as t
+from turtle import Screen
 
 alex = t.Turtle()
 t.colormode(255)
