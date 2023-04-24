@@ -1,22 +1,30 @@
 from menu import Menu, MenuItem
 from coffee_maker import CoffeeMaker
 from money_machine import MoneyMachine
-from art import logo
 
-print(logo)
-is_on = True
-money_machine = MoneyMachine()
 menu = Menu()
-coffee_maker = CoffeeMaker()
+money_machine = MoneyMachine()
+coffe_maker = CoffeeMaker()
 
-while is_on:
-    choice = input(f"What would you like? ({menu.get_items()}): ")
-    if choice == 'off':
-        print(f"Turning coffee machine down.")
-    elif choice == 'report':
-        coffee_maker.report_02()
-        money_machine.report()
-    else:
-        drink = menu.find_drink(choice)
-        if coffee_maker.is_resource_sufficient(drink) and money_machine.make_payment(drink.cost):
-            coffee_maker.make_coffee(drink)
+
+def get_drinks():
+    is_machine_on = True
+    while is_machine_on:
+        options = menu.get_items()
+        get_user_choice = input(f"What would you like? ({options}): ").lower()
+        if get_user_choice == "off":
+            print("Coffee Machine OFF-LINE! ")
+            is_machine_on = False
+        elif get_user_choice == 'report':
+            coffe_maker.report()
+            money_machine.report()
+        else:
+            drink = menu.find_drink(get_user_choice)
+            print(drink)
+            if coffe_maker.is_resource_sufficient(drink):
+                payment_enough = money_machine.make_payment(drink.cost)
+                if payment_enough:
+                    coffe_maker.make_coffee(drink)
+
+
+get_drinks()

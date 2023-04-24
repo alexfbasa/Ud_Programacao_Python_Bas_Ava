@@ -1,6 +1,5 @@
 class CoffeeMaker:
     """Models the machine that makes the coffee"""
-
     def __init__(self):
         self.resources = {
             "water": 300,
@@ -13,10 +12,6 @@ class CoffeeMaker:
         print(f"Water: {self.resources['water']}ml")
         print(f"Milk: {self.resources['milk']}ml")
         print(f"Coffee: {self.resources['coffee']}g")
-
-    def report_02(self):
-        for item in self.resources:
-            print(f"{item}: {self.resources[item]}")
 
     def is_resource_sufficient(self, drink):
         """Returns True when order can be made, False if ingredients are insufficient."""
