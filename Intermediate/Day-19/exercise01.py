@@ -3,11 +3,12 @@ from turtle import Turtle, Screen
 alex = Turtle()
 
 
-def move_forwards():
-    alex.forward(10)
+def f():
+    alex.fd(60)
+    alex.lt(50)
 
 
 screen = Screen()
 screen.listen()
-screen.onkey(key="space", fun=move_forwards)
+screen.onkey(key="space", fun=f)
 screen.exitonclick()
