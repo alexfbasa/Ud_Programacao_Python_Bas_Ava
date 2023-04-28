@@ -37,7 +37,8 @@ class Snake:
             self.segments[seg_number].goto(new_x, new_y)
         self.segments[0].forward(MOVE_DISTANCE)
 
-    ### BUG
+    # BUG
+    # Esta faltando o () na funcao do headign
     # def up(self):
     #     # print(snake.segments[0].heading())  == 0
     #     # self.segments['snake01'].setheading(90)
