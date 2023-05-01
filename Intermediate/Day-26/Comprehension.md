@@ -4,7 +4,7 @@
 ```text
 For loop 
 ```
-```commandline
+```text
 numbers = [1, 2, 3]
 plus_one = [new_each_number(do something) for each_number in list]
 plus_one = [n + 1 for n in numbers]
@@ -14,7 +14,7 @@ plus_one = [2, 3, 4]
 Conditional with IF
 
 ```
-```commandline
+```text
 new_list = [new_item for item in list if {condition}
 new_list = [n for n in list if n % 2 == 0]
 names = ['Alexandre', 'Carla', 'Rodrigo', 'Hiago']
@@ -25,7 +25,7 @@ name_owner = {list: 1} ['Alexandre']
  0 = {str} 'Alexandre'
  __len__ = {int} 1
 ```
-```commandline
+```text
 names = ['Alexandre', 'Carla', 'Rodrigo', 'Hiago']
 names_upper = [name.upper() for name in names] 
 names_upper = {list: 4} ['ALEXANDRE', 'CARLA', 'RODRIGO', 'HIAGO']
@@ -40,7 +40,7 @@ names_upper = {list: 4} ['ALEXANDRE', 'CARLA', 'RODRIGO', 'HIAGO']
 ```text
 new_dict = {new_key:new_value for (key,value) in dict.items()}
 ```
-```commandline
+```text
 names = ['Alexandre', 'Carla', 'Rodrigo', 'Hiago']
 students_random_score = {student:random.randonint(1, 100) for student in names}
 ```
@@ -48,7 +48,7 @@ students_random_score = {student:random.randonint(1, 100) for student in names}
 print(students_random_score)
 {'Alexandre': 34, 'Carla': 26, 'Rodrigo': 87, 'Hiago': 32}
 ```
-```commandline
+```text
 new_dict = {student:score for (student, score) in students_random_score.items() if score >= 60}
 ```
 ```text
