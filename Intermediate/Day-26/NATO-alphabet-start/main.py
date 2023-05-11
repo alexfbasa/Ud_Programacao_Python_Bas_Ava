@@ -30,3 +30,6 @@ dic_nato = {valor.letter: valor.code for (fila, valor) in data.iterrows()}
 print(dic_nato)
 
 # TODO 2. Create a list of the phonetic code words from a word that the user inputs.
+user_input = input("Enter a word:").upper()
+output_list = [dic_nato[letter] for letter in user_input]
+print(output_list)
