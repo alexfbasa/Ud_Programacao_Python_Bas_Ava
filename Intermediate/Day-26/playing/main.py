@@ -1,14 +1,12 @@
 with open("file01.txt") as file01:
-    number01 = file01.readlines()
+    file01_content = file01.read().split()
+    number_file01 = [int(number) for number in file01_content]
+    print(number_file01)
 
 with open("file02.txt") as file02:
-    number02 = file02.readlines()
+    file02_content = file02.read().split()
+    number_file02 = [int(number) for number in file02_content]
+    print(number_file02)
 
-
-numbers = [int(n) for n in number01 if n in number02]
-
-print(numbers)
-
-number_plus = [n * 2 for n in numbers]
-
-print(number_plus)
+new_list = [number for number in number_file01 if number in number_file02]
+print(new_list)
