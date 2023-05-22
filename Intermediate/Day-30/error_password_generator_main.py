@@ -1,13 +1,12 @@
 import string
-from tkinter import *
 import random
-from tkinter import messagebox
 import pyperclip
 import json
+from tkinter import *
+from tkinter import messagebox
 
 
-# ---------------------------- PASSWORD GENERATOR ------------------------------- #
-
+# Password Generator
 def password_generator():
     password_length = 12
     characters = string.ascii_letters + string.digits + string.punctuation
@@ -17,8 +16,7 @@ def password_generator():
     pyperclip.copy(password)
 
 
-# ---------------------------- SAVE PASSWORD ------------------------------- #
-
+# Save Password
 def save_password():
     website = website_entry.get()
     email = email_username_entry.get()
@@ -29,29 +27,37 @@ def save_password():
             'password': password,
         }
     }
-    if website == 0 or len(password) == 0:
+    if len(website) == 0 or len(password) == 0:
         messagebox.showinfo(title="Oops", message="Please don't leave any fields empty.")
     else:
         try:
-            with open('data.json', 'r') as data_file:
-                # Reading old data
+            with open("data.json", "r") as data_file:
                 data = json.load(data_file)
         except FileNotFoundError:
-            with open('data.json', "w") as data_file:
+            with open("data.json", "w") as data_file:
                 json.dump(new_data, data_file, indent=4)
         else:
-            # Update old data with new data
             data.update(new_data)
+
             with open("data.json", "w") as data_file:
-                # Saving updated data
-                json.dump(new_data, data_file, indent=4)
+                json.dump(data, data_file, indent=4)
         finally:
             website_entry.delete(0, END)
             password_entry.delete(0, END)
 
 
-# ---------------------------- UI SETUP ------------------------------- #
+# Search
+def find_password():
+    website = website_entry.get()
+    try:
+        with open("data.json", 'r') as data_file:
+            data = json.load(data_file)
+            print(data)
+    except FileNotFoundError:
+        print("Deu rum")
 
+
+# UI Setup
 window = Tk()
 window.title("Password Manager")
 window.config(padx=50, pady=50)
@@ -72,19 +78,20 @@ email_username_label.grid(column=0, row=2)
 # Entries
 website_entry = Entry(width=35)
 website_entry.focus()
-website_entry.grid(column=1, row=1, columnspan=2)
+website_entry.grid(column=1, row=1)
 email_username_entry = Entry(width=35)
-email_username_entry.grid(column=1, row=2, columnspan=2)
+email_username_entry.grid(column=1, row=2)
 email_username_entry.insert(END, string="alexsimple@gmail.com")
-password_entry = Entry(width=21)
-
+password_entry = Entry(width=35)
 password_entry.grid(column=1, row=3)
 
 # Buttons
 generate_password_button = Button(text="Generate Password", command=password_generator)
 generate_password_button.grid(column=2, row=3)
+generate_search_button = Button(text="Search", command=find_password, width=13)
+generate_search_button.grid(column=2, row=1)
 
-add_button = Button(text="Add", width=36, command=save_password)
-add_button.grid(column=1, row=4, columnspan=2)
+add_button = Button(text="Add", width=30, command=save_password)
+add_button.grid(column=1, row=4, columnspan=1)
 
 window.mainloop()
