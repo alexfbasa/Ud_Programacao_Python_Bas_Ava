@@ -6,7 +6,7 @@ import pandas
 
 alphabet = pandas.read_csv('nato_phonetic_alphabet.csv')
 
-nato_dic = {value.letter: value.code for (column, value) in alphabet.iterrows()}
+nato_dic = {value.letter_path: value.code for (column, value) in alphabet.iterrows()}
 print(nato_dic)
 # get_user_letter = input('Insert the word: ').upper()
 
