@@ -2,6 +2,7 @@ import tkinter as tk
 import pysrt
 import re
 
+
 def read_subtitle_file(file_path):
     try:
         subtitles = pysrt.open(file_path, encoding='latin1')
@@ -10,10 +11,12 @@ def read_subtitle_file(file_path):
         print(f"Error reading subtitle file: {e}")
         return None
 
+
 def clean_text(subtitle_text):
     # Remove HTML tags and special formatting
     clean_text = re.sub('<.*?>', '', subtitle_text)
     return clean_text
+
 
 def display_subtitles(subtitles):
     root = tk.Tk()
