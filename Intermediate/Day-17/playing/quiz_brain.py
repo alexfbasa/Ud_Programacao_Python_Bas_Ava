@@ -13,7 +13,7 @@ class QuizBrain:
     def next_question(self):
         current_question = self.question_list[self.question_number]
         self.question_number += 1
-        get_user_answer = input(f"Q.{self.question_number}: {current_question.text} (True/False)? ").lower()
+        get_user_answer = input(f"Q.{self.question_number}: {current_question.question_text} (True/False)? ").lower()
         self.check_answer(get_user_answer, current_question.answer)
 
     def check_answer(self, user_answer, right_answer):

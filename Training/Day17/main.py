@@ -1,8 +1,18 @@
-from prettytable import PrettyTable
+from data import question_data
+from question_model import Question
+from quiz_brain import QuizBrain
 
 
-table = PrettyTable()
-table.add_column("Pokemon",["Pikachu", "Squirtle", "Charmander"])
-table.add_column("Type",["Electric", "Water", "Fire"])
+question_bank = []
+quiz_brain = QuizBrain(question_bank)
 
-print(table)
+for question in question_data:
+    question_text = question['text']
+    question_answer = question['answer']
+    new_question = Question(question_text, question_answer)
+    question_bank.append(new_question)
+
+while quiz_brain.is_still_question():
+    quiz_brain.next_question()
+
+
