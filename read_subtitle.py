@@ -38,7 +38,7 @@ def display_subtitles(subtitles):
     def update_subtitle(subtitle):
         subtitle_index.set(f"Index: {subtitle.index}")
         subtitle_time.set(f"Time: {subtitle.start} --> {subtitle.end}")
-        subtitle_text.set(clean_text(subtitle.question_text))
+        subtitle_text.set(clean_text(subtitle.text))
 
     def next_subtitle(event=None):
         nonlocal current_subtitle_index
@@ -61,7 +61,7 @@ def display_subtitles(subtitles):
 
 
 # Example usage
-subtitle_file_path = 'Reminiscence.2021.srt'
+subtitle_file_path = 'The.Matrix.English.srt'
 subtitles = read_subtitle_file(subtitle_file_path)
 
 if subtitles:
