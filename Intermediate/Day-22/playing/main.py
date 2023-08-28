@@ -8,6 +8,7 @@ screen = Screen()
 screen.title("Pong")
 screen.bgcolor("black")
 screen.setup(800, 600)
+# Disable animation
 screen.tracer(0)
 ball = Ball()
 scoreboard = Scoreboard()
