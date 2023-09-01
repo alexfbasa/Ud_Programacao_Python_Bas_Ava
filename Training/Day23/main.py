@@ -25,7 +25,7 @@ while is_game_on:
 
     for car in car_manager.car_list:
         if car.distance(player) < 20:
-            score_board.game_over()
+            score_board.reset_score()
             is_game_on = False
 
     if player.if_at_finish():
