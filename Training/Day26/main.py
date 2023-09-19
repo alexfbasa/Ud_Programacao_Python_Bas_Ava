@@ -1,9 +1,9 @@
-import pandas
+import random
 
-user_input = input("Enter a word: ").title()
-user_input_list = [letter for letter in user_input]
+names = ["Alex", "Ana", "Julia", "Pedro", "Roberto"]
 
+students_scores = {name: random.randint(1, 100) for name in names}
 
-data = pandas.read_csv("nato_phonetic_alphabet.csv")
+passed_students = {name: value for name, value in students_scores.items() if value >= 60}
 
-
+print(passed_students)
