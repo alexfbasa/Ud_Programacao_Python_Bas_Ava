@@ -42,6 +42,9 @@ def save_password():
             with open("data.json", "w") as data_file:
                 json.dump(data, data_file, indent=4)
         finally:
+            messagebox.askokcancel(title="Confirm",
+                                   message=f"There are data for the new password:\nWebsite: {website}\n"
+                                           f"Email: {email}\nPassword: {password}\n Is that ok?")
             website_entry.delete(0, END)
             password_entry.delete(0, END)
 
@@ -49,12 +52,17 @@ def save_password():
 # Search
 def find_password():
     website = website_entry.get()
+
     try:
         with open("data.json", 'r') as data_file:
             data = json.load(data_file)
-            print(data)
+            if website in data:
+                password = data[website]
+                messagebox.showinfo("Password", f"Password for {website}: {password}")
+            else:
+                messagebox.showinfo("Password", f"No password found for {website}")
     except FileNotFoundError:
-        print("Deu rum")
+        messagebox.showinfo("Password", "No data file found. You can create one to store passwords.")
 
 
 # UI Setup
@@ -88,8 +96,8 @@ password_entry.grid(column=1, row=3)
 # Buttons
 generate_password_button = Button(text="Generate Password", command=password_generator)
 generate_password_button.grid(column=2, row=3)
-generate_search_button = Button(text="Search", command=find_password, width=13)
-generate_search_button.grid(column=2, row=1)
+search_button = Button(text="Search", command=find_password, width=13)
+search_button.grid(column=2, row=1)
 
 add_button = Button(text="Add", width=30, command=save_password)
 add_button.grid(column=1, row=4, columnspan=1)
