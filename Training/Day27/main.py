@@ -1,33 +1,25 @@
 from tkinter import *
 
 
-def mile_to_km():
-    value = float(miles_entry.get())
-    calc = value * 1.609
-    km_result_label['text'] = calc
+def print_label():
+    user_input = input.get()
+    label['text'] = user_input
 
 
 window = Tk()
-window.title("Mile to Km Converter")
-window.config(padx=20, pady=20)
+window.minsize(width=500, height=300)
 
-miles_entry = Entry()
-miles_entry.grid(column=1, row=0)
-miles_entry.config(width=10)
+window.title("My first GUY program.")
+label = Label(text="My Label")
+label.grid(column=0, row=0)
 
-miles_label = Label(text="Miles")
-miles_label.grid(column=2, row=0)
+button = Button(text="Click me", command=print_label)
+button.grid(column=1, row=1)
 
-is_equal_label = Label(text="is equal to")
-is_equal_label.grid(column=0, row=1)
+new_button = Button(text='Button 02', command=print_label)
+new_button.grid(column=2, row=0)
 
-km_result_label = Label(text='0')
-km_result_label.grid(column=1, row=1)
 
-km_label = Label(text='Km')
-km_label.grid(column=2, row=1)
-
-calculate_button = Button(text="Calculate", command=mile_to_km)
-calculate_button.grid(column=1, row=2)
-
+input = Entry(width=20)
+input.grid(column=3, row=2)
 window.mainloop()
