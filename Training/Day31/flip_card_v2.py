@@ -62,6 +62,18 @@ class FlashcardApp:
         self.entry_label.grid(column=0, row=2, padx=(10, 0), pady=(10, 0))
         self.entry_pronunciation = tk.Entry(width=60)
         self.entry_pronunciation.grid(column=1, row=2, columnspan=2, padx=(0, 10), pady=(10, 0))
+        self.update_pronunciation_button = tk.Button(text="Update Pronunciation", command=self.update_pronunciation)
+        self.update_pronunciation_button.grid(column=1, row=4, pady=(0, 10))
+
+    def update_pronunciation(self):
+        if self.current_card:
+            new_pronunciation = self.entry_pronunciation.get()
+            if new_pronunciation:
+                # Update the current card's pronunciation
+                self.current_card['Pronunciation'] = new_pronunciation
+
+                # Update the DataFrame and save it to the CSV file
+                self.save_progress()
 
     def show_next_card(self):
         if self.flip_timer is not None:
