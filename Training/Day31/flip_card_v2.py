@@ -32,7 +32,7 @@ class FlashcardApp:
 
     def create_widgets(self):
         # Canvas for flashcard
-        self.canvas = tk.Canvas(width=800, height=526, bg=BACKGROUND_COLOR, highlightthickness=0)
+        self.canvas = tk.Canvas(width=800, height=500, bg=BACKGROUND_COLOR, highlightthickness=0)
         self.canvas.grid(column=0, row=0, columnspan=2)
         self.card_front_img = PhotoImage(file="images/card_front.png")
         self.card_back_img = PhotoImage(file="images/card_back.png")
