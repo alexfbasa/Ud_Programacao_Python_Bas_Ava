@@ -13,6 +13,12 @@ article_tags = soup.find_all("a", {"rel": "noreferrer"})
 
 article_upvote = [int(vote.text.split()[0]) for vote in soup.find_all(name='span', class_='score')]
 
+article_vote_simply_way = []
+
+for vote in soup.find_all(name='span', class_='score'):
+    pontuacao = int(vote.text.split()[0])
+    article_vote_simply_way.append(pontuacao)
+
 # Initialize variables to keep track of the most voted article
 most_voted = 0
 most_voted_title = ""
